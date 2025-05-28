@@ -1,0 +1,3 @@
+D:\kursovasysprog\Task4_test\x64\Debug\gtest.pdb
+D:\kursovasysprog\Task4_test\x64\Debug\gtest_main.pdb
+D:\kursovasysprog\Task4_test\test_repos\x64\Debug\test_rep.A9F5781E.Up2Date

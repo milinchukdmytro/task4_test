@@ -9,19 +9,32 @@
 #define STRING_MAX 512ull
 const int32_t get_str(const char const* msg, char* str, const int32_t limit)
 {
-    //paste your solution here
+    printf("%s", msg);
+    size_t size = 0;
+    int c;
+    while (size < (size_t)(limit - 1) && (c = getchar()) != EOF && c != '\n') {
+        str[size++] = (char)c;
+    }
+    str[size] = '\0';
+    return (int32_t)size;
 }
 const size_t strlenn(const char* str)
 {
-    //paste your solution here
+    const char* s = str;
+    while (*s) ++s;
+    return (size_t)(s - str);
 }
 void strcopy(char* fStr, char* sStr, size_t until)
 {
-    //paste your solution here
+    while (until-- && (*sStr++ = *fStr++));
 }
 int32_t strcmpp(const char* fStr, const char* sStr)
 {
-    //paste your solution here
+    while (*fStr && *fStr == *sStr) {
+        ++fStr;
+        ++sStr;
+    }
+    return (int32_t)((unsigned char)*fStr - (unsigned char)*sStr);
 }
 char* strcatt(char* fStr, const char* sStr)
 {
