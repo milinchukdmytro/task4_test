@@ -1,0 +1,7 @@
+﻿  test.cpp
+D:\kursovasysprog\Task4\vs_mkr_test1\stringProcessor.h(10,34): warning C4114: same type qualifier used more than once
+  (compiling source file '/test.cpp')
+  
+D:\kursovasysprog\Task4\vs_mkr_test1\stringProcessor.h(13,1): error C4716: 'get_str': must return a value
+D:\kursovasysprog\Task4\vs_mkr_test1\stringProcessor.h(17,1): error C4716: 'strlenn': must return a value
+D:\kursovasysprog\Task4\vs_mkr_test1\stringProcessor.h(25,1): error C4716: 'strcmpp': must return a value
