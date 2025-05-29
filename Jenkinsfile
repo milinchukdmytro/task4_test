@@ -4,30 +4,51 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'add here your url', credentialsId: 'add credentialsId'
+                git url: 'https://github.com/milinchukdmytro/task4_test.git', credentialsId: 'access_for_jenkins'
             }
         }
         
         stage('Build') {
             steps {
-                // Крок для збірки проекту з Visual Studio
-                // Встановіть правильні шляхи до рішення/проекту та параметри MSBuild
-                bat '"path to MSBuild" test_repos.sln /t:Build /p:Configuration=Release'
+                script {
+                    try {
+                        bat '""D:\\Visual Studio\\MSBuild\\Current\\Bin\\MSBuild.exe"" velichko-test1.sln /p:Configuration=Debug /p:Platform=x64 /m'
+                    } catch (Exception e) {
+                        echo "Build error: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        error("Pipeline stopped due to build failure.")
+                    }
+                }
+            }
             }
         }
 
         stage('Test') {
             steps {
-                // Команди для запуску тестів
-                bat "x64\\Debug\\test_repos.exe --gtest_output=xml:test_report.xml"
+                script {
+                    try {
+                        bat '"D:\kursovasysprog\Task4_test\x64\Debug\test_repos.exe"'
+                    } catch (Exception e) {
+                        echo "Test error: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        error("Pipeline stopped due to test execution failure.")
+                    }
+                }
             }
         }
-    }
+    
 
     post {
-    always {
-        // Publish test results using the junit step
-         // Specify the path to the XML test result files
+        always {
+            cleanWs()
+        }
+        
+        failure {
+            echo "Pipeline failed. Check logs to fix the issues."
+        }
+        
+        success {
+            echo "Pipeline completed successfully!"
+        }
     }
-}
 }
