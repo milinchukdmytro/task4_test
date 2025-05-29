@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat '"D:\kursovasysprog\Task4_test\x64\Debug\test_repos.exe"'
+                        bat '"D:\\kursovasysprog\\Task4_test\\x64\\Debug\\test_repos.exe"'
                     } catch (Exception e) {
                         echo "Test error: ${e.message}"
                         currentBuild.result = 'FAILURE'
