@@ -20,7 +20,6 @@ pipeline {
                     }
                 }
             }
-            }
         }
 
         stage('Test') {
@@ -36,7 +35,7 @@ pipeline {
                 }
             }
         }
-    
+    }
 
     post {
         always {
