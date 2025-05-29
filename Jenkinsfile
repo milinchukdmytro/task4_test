@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/milinchukdmytro/task4_test.git'
+                git url: 'https://github.com/milinchukdmytro/task4_test.git', branch: 'main'
             }
         }
         
@@ -39,7 +39,8 @@ pipeline {
 
     post {
         always {
-            cleanWs()
+            //cleanWs()
+            echo "1"
         }
         
         failure {
