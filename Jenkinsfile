@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat '""D:\\Visual Studio\\MSBuild\\Current\\Bin\\MSBuild.exe"" velichko-test1.sln /p:Configuration=Debug /p:Platform=x64 /m'
+                        bat '"D:\\Visual Studio\\MSBuild\\Current\\Bin\\MSBuild.exe" test_repos.sln /p:Configuration=Debug /p:Platform=x64 /m'
                     } catch (Exception e) {
                         echo "Build error: ${e.message}"
                         currentBuild.result = 'FAILURE'
