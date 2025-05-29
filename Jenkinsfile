@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/milinchukdmytro/task4_test.git', credentialsId: 'access_for_jenkins'
+                git url: 'https://github.com/milinchukdmytro/task4_test.git'
             }
         }
         
